@@ -1,12 +1,10 @@
-package com.isha.springdatajpamongodb.model;
+package com.isha.springdatajpamongodb.dto;
 
-import org.springframework.data.annotation.Id;// id comes from here
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document// for mongodb => like table in MySQL => Document in MongoDB
-public class Customer
+public class CustomerDTO
 {
-    @Id// primary id and doesn't come from jakarta
+
+    // for custom id generation
     private String id;
 
     private Integer custNo;
@@ -14,10 +12,28 @@ public class Customer
     private String name;
 
     private String city;
-
-    public Customer()
+// zero param constructor
+    public CustomerDTO()
     {
-        System.out.println("Zero param constructor of customer");
+        System.out.println("Zero param constructor of CustomerDTO");
+    }
+
+
+    // non zero param constructor
+    public CustomerDTO(String id)
+    {
+        System.out.println("no zero param constructor");
+        this.id=id;
+
+    }
+    // non zero param constructor
+    public CustomerDTO(Integer custNo,String name,String city)
+    {
+        System.out.println("no zero param constructor");
+        this.custNo=custNo;
+        this.name=name;
+        this.city=city;
+
     }
 
     // Getters and Setters
@@ -66,4 +82,3 @@ public class Customer
                 '}';
     }
 }
-
